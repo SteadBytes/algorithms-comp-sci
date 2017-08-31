@@ -46,8 +46,8 @@ let selectionSort = function (array) {
 
 let array = [22, 11, 99, 88, 9, 7, 42];
 selectionSort(array);
-Program.assertEqual(array, [7, 9, 11, 22, 42, 88, 99]);
+console.assert(array === [7, 9, 11, 22, 42, 88, 99]);
 
 let array = [-3, 10, -8, 11];
 selectionSort(array);
-Program.assertEqual(array, [-8, -3, 10, 11]);
+console.assert(array === [-8, -3, 10, 11]);

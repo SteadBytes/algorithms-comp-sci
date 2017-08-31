@@ -89,6 +89,3 @@ let selectionSort = function (array) {
         swap(array, i, min);
     }
 };
-
-
-// var array = [444, 444, 100, 888, 136];

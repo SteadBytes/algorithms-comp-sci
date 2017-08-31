@@ -26,7 +26,7 @@ let binarySearch = function (array, targetValue) {
 let primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37,
     41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97
 ];
-Program.assertEqual(binarySearch(primes, 73), 20);
-Program.assertEqual(doSearch(primes, 100), -1);
+console.assert(binarySearch(primes, 73) === 20);
+console.assert(doSearch(primes, 100) === -1);
 let result = binarySearch(primes, 73);
-println("Found prime at index " + result);
+console.log("Found prime at index " + result);

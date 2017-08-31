@@ -23,10 +23,10 @@ let insertionSort = function (array) {
 
 let array = [22, 11, 99, 88, 9, 7, 42];
 insertionSort(array);
-println("Array after sorting:  " + array);
-Program.assertEqual(array, [7, 9, 11, 22, 42, 88, 99]);
+console.log("Array after sorting:  " + array);
+console.assert(array === [7, 9, 11, 22, 42, 88, 99]);
 
 let array = [22, -5, 11, -20, 55, 3, 22];
 insertionSort(array);
-println("Array after sorting:  " + array);
-Program.assertEqual(array, [-20, -5, 3, 11, 22, 22, 55]);
+console.log("Array after sorting:  " + array);
+console.assert(array === [-20, -5, 3, 11, 22, 22, 55]);
