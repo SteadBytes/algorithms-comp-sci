@@ -12,11 +12,12 @@ let drawLine = function (x1, y1, length, angle) {
 
     let x2 = x1 + vx;
     let y2 = y1 + vy;
+
     context.beginPath();
     context.moveTo(x1, y1);
     context.lineTo(x2, y2);
     context.stroke();
-    // line(x1, y1, x2, y2);
+
     return [x2, y2];
 };
 
