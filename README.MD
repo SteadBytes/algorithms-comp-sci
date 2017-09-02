@@ -6,5 +6,5 @@ This repository contains my work/notes/code for learning Algorithms in Computer 
 
 Most algorithm implementations are written in **both** Python and Javascript.
 
-## Use of Built-In Features:
+## Use of Built-In Language Features:
 Many of the algorithms could be made far more efficient/cleaner/generally better by using **built-in** language features -> map, reduce, itertools etc. However I have not used these in order to *learn* how these algorithms actually work. 
