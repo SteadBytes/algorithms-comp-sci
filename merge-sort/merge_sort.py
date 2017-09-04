@@ -38,7 +38,7 @@ def merge(array, p, q, r):
 
 
 def mergesort(array, p, r):
-    """ Sorts an array in place using mergesort
+    """ Sorts an array using mergesort
 
     Args:
         array (array): array to sort
