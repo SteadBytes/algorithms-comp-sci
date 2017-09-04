@@ -1,8 +1,18 @@
 def merge(array, p, q, r):
+    """ Merges an array which contains **two sorted subarrays** 
+    from [p..q] and [q+1..r] into a fully sorted array
+
+    Args:
+        array (array): array containing subarrays
+        p (int): Start index
+        q (int): Midpoint index between the subarrays
+        r (int): End index
+    """
     k = p
     i = 0  # lowHalf iterator
     j = 0  # highHalf iterator
 
+    # Copy subarrays out of array so array can be mutated
     lowHalf = array[k:q + 1]
     highHalf = array[q + 1:r + 1]
 
@@ -15,6 +25,7 @@ def merge(array, p, q, r):
             j += 1
         k += 1
 
+    # Copy remainder of whichever array hasnt been fully copied over yet
     while (i < len(lowHalf)):
         array[k] = lowHalf[i]
         i += 1
@@ -27,6 +38,13 @@ def merge(array, p, q, r):
 
 
 def mergesort(array, p, r):
+    """ Sorts an array in place using mergesort
+
+    Args:
+        array (array): array to sort
+        p (int): start index (0 unless sorting a subarray)
+        r (int): end index (len(array)-1 unless sorting a subarray)
+    """
     if (p < r):
         q = int((p + r) / 2)
         mergesort(array, p, q)

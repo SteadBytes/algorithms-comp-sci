@@ -1,7 +1,5 @@
-// Takes in an array that has two sorted subarrays,
-//  from [p..q] and [q+1..r], and merges the array
 /**
- * Merges an array which contains two sorted subarrays
+ * Merges an array which contains two sorted subarrays from [p..q] and [q+1..r]
  * @param {array} array array with subarrays to merge
  * @param {int} p start index 
  * @param {int} q mid-index between the subarrys 
