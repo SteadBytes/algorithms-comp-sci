@@ -43,11 +43,19 @@ let selectionSort = function (array) {
         swap(array, i, min);
     }
 };
-
+/**
+ * Compares contents and order of simple, 1d arrays
+ * @param {array} arr1 
+ * @param {array} arr2 
+ * @return {bool} Whether arrays are equal
+ */
+let arrayAreEqual = function (arr1, arr2) {
+    return arr1.lenth === arr2.lenth && arr1.reduce((a, b, i) => a && arr1[i] === arr2[i], true)
+}
 let array = [22, 11, 99, 88, 9, 7, 42];
 selectionSort(array);
-console.assert(array === [7, 9, 11, 22, 42, 88, 99]);
+console.assert(true === arrayAreEqual(array, [7, 9, 11, 22, 42, 88, 99]));
 
 let array = [-3, 10, -8, 11];
 selectionSort(array);
-console.assert(array === [-8, -3, 10, 11]);
+console.assert(true === arrayAreEqual(array, [-8, -3, 10, 11]));
