@@ -106,3 +106,43 @@ let merge = function(array, p, q, r) {
     }
 };
 ```
+### Runtime Analysis - **&Theta;(n)**
+ Merging requires a constant number of instructions *per element*:
+1. Copy each element into `lowHalf` or `highHalf` 
+2. Compare first untaken elements from `lowHalf` and `highHalf` and copy smallest of the two into `array` until all item taken from one of the subarrays.
+3. Copy remaining items from subarray with items still untaken into `array`.
+
+* In step 1 an element is copied into `array` *exactly one time*. 
+* In step 2 each comparison takes constant time.
+    * At most one element can 'win' the comparison **one** time.
+* Each element is copied back into `array` *exactly one time* in steps **2 and 3** combined.
+
+Each line of code is executed a constant number of time per element and `array` has *n* elements - therfore **&Theta;(n)**.
+
+## Mergesort Analysis - **&Theta;(*n log n*)**
+* **Divide** step is **&Theta;(1)**
+    * Compute midpoint of array
+* **Combine** step (merging) is  **&Theta;(n)**
+
+The *divide* and *combine* steps **together** are **&Theta;(n)**. Therefore divide and combine steps take *cn* time for some constant *c*
+* **&Theta;(1)** for divide is lower order *constant*
+
+**Conquer** step -> recursive calls on an (*n/2*)-element subarray. Each recursive call takes *2 &middot; n/2<sup>x</sup>* where *x* is the 'level' of recursion:
+
+![](../images/2017-09-04-11-49-36.png)
+
+As the subproblems get smaller, the *number* of subproblems double at each 'level' of recursion but the **merging time halves**. This cancels out leaving merging time of *cn* at each level of recursion.
+
+The base case (subproblems of size 1) are **&Theta;(1)**.
+* Test whether *p<r*
+
+*n* elements = *n* base case subarrays. Total time for base cases is *n &middot; (1)* = *cn*:
+
+![](../images/2017-09-04-11-53-46.png)
+
+Total time for mergesort is the **sum of the merging times for all levels** -> *num_levels &middot; cn*. Repeatedly halving *n* elements:
+* *num_levels = log n+1* -> same as binary search.
+* Total time = *cn(log n+1)*
+* Discard constant term and low order coefficient = *&Theta;(n log n)*
+
+**N.B:** As arrays are copied in the merge portion of mergesort, it **does not sort in place**.
