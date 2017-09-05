@@ -68,11 +68,12 @@ let mergeSort = function (array, p, r) {
     }
 };
 
+// Testing ----------------------------------------------
 /**
  * Compares contents and order of simple, 1d arrays
  * @param {array} arr1 
  * @param {array} arr2 
- * @return {bool} Whether arrays are equal
+ * @return {boolean} Whether arrays are equal
  */
 let arrayAreEqual = function (arr1, arr2) {
     return arr1.lenth === arr2.lenth && arr1.reduce((a, b, i) => a && arr1[i] === arr2[i], true)
