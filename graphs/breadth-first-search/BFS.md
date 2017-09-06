@@ -7,7 +7,7 @@ Each vertex *v* is assigned:
 
 Each vertex has two numbers -  (distance from source, predecessor). A dash represents `null`:
 
-![](../images/2017-09-06-07-41-30.png)
+![](../../images/2017-09-06-07-41-30.png)
 
 1. Set distance and predecessor of all nodes to `null`
 2. Start at source -> assign *d = 0*
