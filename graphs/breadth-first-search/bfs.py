@@ -7,6 +7,7 @@ def bfs(graph, source):
     Args:
         graph (list of list of int): Adjacency matrix representation of graph
         source (int): Index of source vertex to begin search from
+
     Returns:
         list of dicts describing each vertex -> [{distance: _, predecessor: _ }] 
     """
