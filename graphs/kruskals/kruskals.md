@@ -51,12 +51,14 @@ Sets *{B, E}* and *{A, C, D, F, G, H}*:
 ![](../../images/2017-09-18-07-32-55.png)
 
 `makeset` is used to make a new tree to represent a set with a single element:
+* **constant time** = &Theta;(1)
 ```Python
 def makeset(x):
     parent(x) = x
     rank(x) = 0
 ```
 `find` is used to find the representative/root node of an element in a set:
+* Follows parent pointers to root node.
 ```Python
 def find(x):
     if x != parent(x):
@@ -70,10 +72,6 @@ def find(x):
     Path compression - `find(I)` followed by `find(k`):
 
     ![](../../images/2017-09-18-08-00-16.png)
-
-`makeset` = **constant time** = &Theta;(1)
-
-* Follows parent pointers to root node.
 
 `union` **merges** sets:
 * Root node of one set made to point to the root of the other.
