@@ -106,7 +106,7 @@ class KruskalsMSTTest(unittest.TestCase):
                       }
 
     def test_MST_correct(self):
-        """Check that kruskals produces correct 
+        """Test whether kruskals produces correct MST
         """
         mst_expected = {('E', 'D'), ('B', 'C'), ('D', 'F'),
                         ('C', 'E'), ('A', 'B')}
