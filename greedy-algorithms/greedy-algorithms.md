@@ -9,8 +9,8 @@ Optimal solutions to some problems can be intractable or not worth the complexit
 * [Dijkstra's](../graphs/dijkstras/dijkstras.md
 ) algorithm
     * Optimal path finding in a graph
-* Huffman Encoding
-* Set-Covering Problem
+* [Huffman Encoding](huffman-encoding/huffman-encoding.md)
+* [Set-Covering](set-covering/set-covering.md) Problem
 * Knapsack Problem
 
 ## Approximation Algorithms
