@@ -7,14 +7,10 @@ Maintains *two sets* of vertices:
 
 At every step a *cut* of the two sets, pick the *minimum weight* edge from the cut and add the vertex to the MST set.
 
+![](../../images/2017-09-22-08-05-17.png)
+
 ## Algorithm with Priority Queue
-**Run time depends**
-
-
-
-
-
- on the priority queue implementation.
+**Run time depends** on the priority queue implementation.
 ```Python
 def prims(graph, weights):
     #initialise costs[] and parents[]
