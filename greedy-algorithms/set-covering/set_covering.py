@@ -7,8 +7,9 @@ def powerset(iterable):
     For a range of integers up to the length of the given list,
     make all possible combinations and chain them together as one object.
     From https://docs.python.org/3/library/itertools.html#itertools-recipes
+    list(powerset([1,2,3])) --> [(), (1,), (2,), (3,), (1,2), (1,3),
+                                (2,3), (1,2,3)]
     """
-    "list(powerset([1,2,3])) --> [(), (1,), (2,), (3,), (1,2), (1,3), (2,3), (1,2,3)]"
     s = list(iterable)
     return chain.from_iterable(combinations(s, r) for r in range(len(s) + 1))
 
@@ -66,7 +67,6 @@ def greedy_set_cover(universe, subsets, costs):
         # union
         covered |= subsets[min_set]
     return cover_sets
-
 
 
 # U
