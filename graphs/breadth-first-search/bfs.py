@@ -1,7 +1,14 @@
+"""
+Breadth-first search (BFS) is an algorithm for traversing or searching tree or
+graph data structures. Starting at the tree root (or some arbitrary node of a
+graph, sometimes referred to as a 'search key'[1]) and explores the neighbor
+nodes first, before moving to the next level neighbours.
+"""
+
 from collections import deque
 
 
-def bfs(graph, source):
+def breadth_first_search(graph, source):
     """ Performs a breadth-first search on a graph
 
     Args:
@@ -9,12 +16,13 @@ def bfs(graph, source):
         source (int): Index of source vertex to begin search from
 
     Returns:
-        list of dicts describing each vertex -> [{distance: _, predecessor: _ }] 
+        list of dicts describing each vertex in the searched graph
+            -> [{distance: _, predecessor: _ }]
     """
-    vertexInfo = []
+    vertex_info = []
     for i in range(len(graph)):
-        vertexInfo.append({"distance": None, "predecessor": None})
-    vertexInfo[source]["distance"] = 0
+        vertex_info.append({"distance": None, "predecessor": None})
+    vertex_info[source]["distance"] = 0
 
     search_queue = deque()
     search_queue.append(source)
@@ -22,61 +30,63 @@ def bfs(graph, source):
     while search_queue:
         u = search_queue.popleft()
         for v in graph[u]:
-            if vertexInfo[v]["distance"] is None:
-                vertexInfo[v]["distance"] = vertexInfo[u]["distance"] + 1
-                vertexInfo[v]["predecessor"] = u
+            if vertex_info[v]["distance"] is None:
+                vertex_info[v]["distance"] = vertex_info[u]["distance"] + 1
+                vertex_info[v]["predecessor"] = u
                 search_queue.append(v)
-    return vertexInfo
+    return vertex_info
 
 
-# Testing --------------------
+def main():
+    graph_adj_list = [
+        [1],
+        [0, 4, 5],
+        [3, 4, 5],
+        [2, 6],
+        [1, 2],
+        [1, 2, 6],
+        [3, 5],
+        []
+    ]
+    vertex_info = breadth_first_search(graph_adj_list, 3)
 
-adjList = [
-    [1],
-    [0, 4, 5],
-    [3, 4, 5],
-    [2, 6],
-    [1, 2],
-    [1, 2, 6],
-    [3, 5],
-    []
-]
+    for i in range(len(graph_adj_list)):
+        print("vertex %s : distance = %s, predecessor = %s" %
+              (i, vertex_info[i]["distance"], vertex_info[i]["predecessor"]))
 
-vertexInfo = bfs(adjList, 3)
+    assert(vertex_info[0] == {
+        "distance": 4,
+        "predecessor": 1
+    })
+    assert(vertex_info[1] == {
+        "distance": 3,
+        "predecessor": 4
+    })
+    assert(vertex_info[2] == {
+        "distance": 1,
+        "predecessor": 3
+    })
+    assert(vertex_info[3] == {
+        "distance": 0,
+        "predecessor": None
+    })
+    assert(vertex_info[4] == {
+        "distance": 2,
+        "predecessor": 2
+    })
+    assert(vertex_info[5] == {
+        "distance": 2,
+        "predecessor": 2
+    })
+    assert(vertex_info[6] == {
+        "distance": 1,
+        "predecessor": 3
+    })
+    assert(vertex_info[7] == {
+        "distance": None,
+        "predecessor": None
+    })
 
-for i in range(len(adjList)):
-    print("vertex %s : distance = %s, predecessor = %s" %
-          (i, vertexInfo[i]["distance"], vertexInfo[i]["predecessor"]));
 
-assert(vertexInfo[0] == {
-    "distance": 4,
-    "predecessor": 1
-});
-assert(vertexInfo[1] == {
-    "distance": 3,
-    "predecessor": 4
-});
-assert(vertexInfo[2] == {
-    "distance": 1,
-    "predecessor": 3
-});
-assert(vertexInfo[3] == {
-    "distance": 0,
-    "predecessor": None
-});
-assert(vertexInfo[4] == {
-    "distance": 2,
-    "predecessor": 2
-});
-assert(vertexInfo[5] == {
-    "distance": 2,
-    "predecessor": 2
-});
-assert(vertexInfo[6] == {
-    "distance": 1,
-    "predecessor": 3
-});
-assert(vertexInfo[7] == {
-    "distance": None,
-    "predecessor": None
-});
+if __name__ == '__main__':
+    main()
