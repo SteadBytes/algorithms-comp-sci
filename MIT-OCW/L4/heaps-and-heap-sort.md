@@ -16,6 +16,7 @@
     * Nearly complete as array may not have even number of items
 
 TODO: Write diagram in ASCII :D
+
 ![](../../images/2018-01-09-11-28-41.png)
 
 ### Heap as a Tree
@@ -38,7 +39,7 @@ TODO: Write diagram in ASCII :D
 * vice-versa for min-heap
 
 ### Heap Operations
-* build_max_heap: produce a mac-heap from an **unordered array**
+* build_max_heap: produce a max-heap from an **unordered array**
 * max_heapify: Correct a **single violation** of the heap property in a **subtree's root**
     * Fundamental operation for building max-heaps
 
